@@ -1,0 +1,200 @@
+ASCII (AMERICAN STANDARD CODE FOR INTERFACE INTERCHANGE )
+ =========================================================
+ SELECT ASCII ('A') FROM DUAL;
+ SELECT ASCII ('B') FROM DUAL; 
+ 
+  SELECT ASCII ('a') FROM DUAL;
+ 
+  SELECT ASCII ('APPLE') FROM DUAL;
+ 
+                   
+ CHR
+ ======
+ OPPOSITE OF ASCII
+ 
+ SELECT CHR(65) FROM DUAL;
+ 
+ NUMBER FUNCTION
+ ====================
+ 
+These Functions Accept Numeric Input and Return Numeric Values as Output.
+
+1. ROUND:-
+========
+1.Round function gives round UP value.
+2.it always do round up, if value is more than   or equal to 5 
+3.It accepts 2 aruguments but 2nd is optional.
+4.if we pass 2nd parameter value then,   do round up after decimal value.
+
+SELECT ROUND(25.5) FROM DUAL;
+
+SELECT ROUND(25.2) FROM DUAL;                   
+                   
+SELECT ROUND(25.0) FROM DUAL;                   
+
+SELECT ROUND(25.99) FROM DUAL;                       
+                   
+                   
+SELECT ROUND (25.56, 1)   FROM DUAL;             
+SELECT ROUND (25.52, 1)   FROM DUAL;   
+
+SELECT ROUND (25.56, 2)   FROM DUAL;     
+                                  
+                                  
+SELECT EMPNO, ENAME, SAL, ROUND(SAL/30) AS PER_DAY_SAL FROM EMP;                                  
+                                  
+                                  
+ TRUNC
+ =======
+ 1. trunc function removes decimal value and gives 
+   actual value, it accepts two argument but 
+   2nd  argument is optional
+2.if we provide 2nd argument then trunc that particular 
+  value after decimal.
+  
+ 
+SELECT TRUNC(25.3) FROM DUAL;  
+
+SELECT TRUNC(25.9) FROM DUAL;                                    
+
+
+SELECT TRUNC(25.12345, 2) FROM DUAL;                                       
+                                  
+SELECT EMPNO, ENAME, TRUNC(SAL/ 30,2) , ROUND (TRUNC(SAL/ 30,2))
+FROM EMP;                                  
+                                  
+ CEIL FUNCTION
+-------------------
+CEIL FUNCTION RETURNS ROUND UP VALUE IRESPECTIVE OF DECIMALS. 
+
+
+SELECT CEIL (20.56) FROM DUAL;
+
+SELECT CEIL (20.26) FROM DUAL;
+
+SELECT EMPNO, ENAME ,SAL, CEIL (SAL/30) , ROUND(SAL/30) FROM EMP; 
+
+FLOOR FUNCTION
+=================
+FLOOR FUNCTION RETURNS LOWER  VALUE IRESPECTIVE OF DECIMALS.
+
+SELECT FLOOR (23.56) FROM DUAL;
+
+SELECT FLOOR (23.12) FROM DUAL;
+
+
+MOD (MODULUS FUNCTION)
+======================
+MOD FUNCTION Provides the REMAINDER, 
+1ST PARAMETER IS DIVIDENT  2ND PARAMETER IS DIVIDER
+
+SELECT MOD(10, 2) FROM DUAL;
+
+2)10(5
+    10
+   ====
+    0
+
+2- DIVIDER
+10- DIVIDENT
+5- QUOTIENT
+0 - REMAINDER
+
+ DIVIDER) DIVIDENT ( QUOTIENT
+              ========
+              REMAINDER
+
+SELECT MOD(10, 3) FROM DUAL;
+
+SELECT EMPNO, ENAME, SAL, MOD(SAL ,2) FROM EMP;
+
+CR-1
+
+DISPLAY EMP INFORMATION WHO IS GETTING EVEN SALARY ?
+
+CR-2
+
+DISPLAY EMP INFORMATION WHO IS GETTING ODD SALARY ?
+
+POWER FUNCTION
+=================
+1.power function return values multipled by    no of times by 2ND PARAMETER exponent
+2. The first parameter is base and 2nd is power.
+
+SELECT POWER(10, 2) FROM DUAL;
+
+SELECT POWER(10, 3) FROM DUAL;
+
+SELECT EMPNO, ENAME, SAL, POWER (SAL, 2) FROM EMP;
+
+
+SQRT (SQUARE ROOT FUNCTION)
+============================
+Display the square root of a value.
+
+SELECT SQRT (100) FROM DUAL;
+
+SELECT SAL,  SQRT (SAL) , ROUND ( SQRT (SAL) )
+FROM EMP;
+
+SELECT EMPNO, ENAME, SAL,  ROUND (SQRT (SAL + NVL (COMM,0) ) )
+FROM EMP;
+
+RAVAN KO GYAN KA AHANKAR THA
+RAM KO AHANKAR KA GYAN THA
+
+
+ABS(ABSOLUTE FUNCTION)
+======================
+PROVIDE ALWAYS THE POSITIVE VALUE
+
+
+SELECT ABS (-20) FROM DUAL;
+
+SELECT ABS (20) FROM DUAL;
+
+SELECT ABS (0) FROM DUAL;
+
+SELECT EMPNO, ENAME, SAL, COMM, ABS (SAL - NVL(COMM,0) )  FROM EMP;
+
+SIGN FUNCTION
+-------------------------
+It returns sign ,specification of a number.
+
+if n<0 returns -1
+if n=0 returns 0
+if n>0 returns 1
+
+
+SELECT SIGN (10) , SIGN(-10), SIGN (0) FROM DUAL;
+
+INTERVIEW QUESTION:-
+=====================
+CREATE TABLE   A (ID NUMBER);
+INSERT INTO A VALUES (10);
+INSERT INTO A VALUES (-20);
+INSERT INTO A VALUES (30);
+INSERT INTO A VALUES (-40);
+INSERT INTO A VALUES (0);
+
+SELECT * FROM A;
+SELECT * FROM A WHERE ID <0;
+
+SELECT * FROM A WHERE SIGN(ID)=-1;
+
+SELECT * FROM A WHERE SIGN(ID)=1;
+
+
+CR-3
+
+IN THIS TABLE DISPLAY POSTIVIE VALUE TO NEGATIVE AND NEGATIVE TO POSITIVE?
+
+SELECT * FROM A;
+
+
+CR-4:-
+
+DISPLAY NEGATIVE SALARY EMPLOYEES  AFTER DEDUCTION FROM SAL - COMM ?
+
+CR-5:-
+DISPLAY POSITVE SALARY EMPLOYEES  AFTER DEDUCTION FROM SAL - COMM ?
